@@ -1,3 +1,5 @@
+import '../public/css/global.css'
+
 export default function RootLayout({ children }){
     return (
         <html lang="en">
