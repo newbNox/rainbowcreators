@@ -1,7 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.css'
-import '../public/css/global.css'
+import "./css/global.scss"
 
-export default function RootLayout({ children }){
+export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body>{children}</body>
