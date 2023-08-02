@@ -1,9 +1,16 @@
 export default function Page() {
     return <>
-        <div className="container">
-            <header className="p-5 h1 text-center">
-                <h1 className="heroText text-shadow">The best place for <span className="rainbow">rainbow creators</span> on the web.</h1>
+            <header>
+                <div className="logoSection">
+                    <a href="/"><img className="logo" src=""></img></a>
+                </div>
             </header>
-        </div>
+            <main>
+                <section>
+                    <article>
+                        <h1>Welcome to the landing page of Rainbow Creators!</h1>
+                    </article>
+                </section>
+            </main>
     </>
 }
