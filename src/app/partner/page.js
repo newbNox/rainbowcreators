@@ -5,7 +5,7 @@ export default function Page() {
     return (
       <>
         <Head>
-            <title>Rainbow Creators</title>
+            <title>Rainbow Creators : Partner program</title>
         </Head>
         <Header subTitle="Partner program is made for you"/>
         <main>
