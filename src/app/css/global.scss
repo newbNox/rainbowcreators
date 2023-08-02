@@ -1,5 +1,6 @@
 @import '/node_modules/bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
 
 $primaryColor: #eb3d27;
 
@@ -16,6 +17,7 @@ body {
 }
 
 header {
+    font-family: "Montserrat";
     position:relative;
     background: repeating-linear-gradient(
         45deg,
@@ -50,7 +52,13 @@ article {
 }
 
 article h1 {
-    font-size: 16px;
+    font-size: 10px;
+    font-family: "Roboto";
+}
+
+p {
+  font-size: 4px;
+  font-family: "Roboto";
 }
 
 h1.logo {
@@ -74,7 +82,7 @@ a {
 }
 
 p.subTitle {
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.247);
+  text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.247);
   font-weight: 800;
   font-size: 5px;
   color: white;
