@@ -1,0 +1,9 @@
+.rainbowDiag {
+    background: repeating-linear-gradient(
+        45deg,
+        #ec3a22,
+        #ec3a22 10px,
+        #f67619 20px,
+        #ffb201 30px
+    )
+}
