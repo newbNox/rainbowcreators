@@ -73,6 +73,14 @@ a {
     text-decoration: none;
 }
 
+p.subTitle {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.247);
+  font-weight: 800;
+  font-size: 5px;
+  color: white;
+  text-transform: uppercase;
+}
+
 .waves {
     position:relative;
     width: 100%;
