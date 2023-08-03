@@ -2,6 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const formatViewerCount = (count) => {
+  if(count < 1000){
+    return count;
+  } else {
+    const countInK = (count / 1000).toFixed(1);
+    return `${countInK}K`;
+  }
+}
+
 const TwitchLiveStreams = ({ tag }) => {
   const [streams, setStreams] = useState([]);
   const [isClient, setIsClient] = useState(false);
@@ -36,7 +45,7 @@ const TwitchLiveStreams = ({ tag }) => {
               <div className="card">
                 <div className='card-header'><b>{stream.user_name}</b></div>
                 <div className='card-img-caption'>
-                  <p className='card-text'>{stream.viewer_count}</p>
+                  <p className='card-text'>{formatViewerCount(stream.viewer_count)}</p>
                   <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top" alt="..." />
                 </div>
                 <div className="card-body text-start">
