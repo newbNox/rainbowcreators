@@ -40,8 +40,9 @@ const TwitchLiveStreams = ({ tag }) => {
             </div>
           </div>
         </div>
-      )) : <p>Currently none</p>}
-    </div>
+      )) : <p>Currently none</p>
+      }
+    </div >
   );
 };
 
