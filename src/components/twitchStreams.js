@@ -28,21 +28,30 @@ const TwitchLiveStreams = ({ tag }) => {
 
   return (
     <div>
-      <h1 className='headline'>LGBTQIA STREAMERS/SUPPORTERS LIVE RIGHT NOW!</h1>
-      {streams ? streams.map((stream) => (
-        <div key={stream.id}>
-          <div className="card">
-            {stream.thumbnail_url && (
-              <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top" alt="..." />
-            )}
-            <div className="card-body">
-              <p className="card-text">{stream.title} {stream.user_name}</p>
-              <a href={`https://twitch.tv/${stream.user_name}`} class="btn btn-primary">Watch</a>
-            </div>
+      <h1 className='headline'>LGBTQIA STREAMERS LIVE RIGHT NOW!</h1>
+      <div className="container">
+        <div class="row">
+        {streams ? streams.map((stream) => (
+          <div className="col-lg-4 d-flex align-items-stretch">
+              <div className="card">
+                <div className='card-header'><b>{stream.user_name}</b></div>
+                <div className='card-img-caption'>
+                  <p className='card-text'>{stream.viewer_count}</p>
+                  <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top" alt="..." />
+                </div>
+                <div className="card-body text-start">
+                  <p className="card-text">{stream.title.substring(0, 75) + "..."}</p>
+                </div>
+                <a href={`https://twitch.tv/${stream.user_name}`} target='_blank' className="btn btn-dark justify-self-end mt-auto">Watch the live</a>
+                <div class="card-footer text-body-secondary">
+                  {stream.game_name}
+                </div>
+              </div>
           </div>
+        )) : <p>Currently none</p>
+        }
         </div>
-      )) : <p>Currently none</p>
-      }
+      </div>
     </div >
   );
 };

@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
 
 $primaryColor: #eb3d27;
+$discordMainColor: #5865F2;
 
 * {
     box-sizing: border-box;
@@ -49,7 +50,7 @@ article {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
-    padding: 20px 50px;
+    padding: 25px;
 }
 
 article h1 {
@@ -140,4 +141,30 @@ p.subTitle {
         height:40px;
         min-height:40px;
     }
+}
+
+.card {
+  width: 18rem;
+  margin-bottom: 20px;
+}
+
+.card-img-caption {
+  border-top-left-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(.25rem - 1px);
+}
+  
+.card-img-caption .card-img-top {
+  z-index: 0;
+}
+    
+.card-img-caption .card-text {
+  text-align: center;
+  margin: 45% 10;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 3px;
+  font-size: 12px;
+  border-radius: 15%;
 }

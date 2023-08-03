@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
     const tag = req.query.tag; // Assuming you pass the tag as a query parameter
 
-    const twitchUrl = `https://api.twitch.tv/helix/streams?tag_id=${tag}&first=10&language=en&type=live`;
+    const twitchUrl = `https://api.twitch.tv/helix/streams?tag_id=${tag}&first=12&language=en&type=live`;
     const twitchResponse = await fetch(twitchUrl, {
       headers: {
         'Authorization': `Bearer ${accessToken}`,
