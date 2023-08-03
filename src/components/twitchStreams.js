@@ -33,7 +33,7 @@ const TwitchLiveStreams = ({ tag }) => {
         <div key={stream.id}>
           <div className="card">
             {stream.thumbnail_url && (
-              <img src={stream.thumbnail_url} className="card-img-top" alt="..." />
+              <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top" alt="..." />
             )}
             <div className="card-body">
               <p className="card-text">{stream.title} {stream.user_name}</p>
