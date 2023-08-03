@@ -30,9 +30,9 @@ const TwitchLiveStreams = ({ tag }) => {
     <div>
       <h1 className='headline'>LGBTQIA STREAMERS LIVE RIGHT NOW!</h1>
       <div className="container">
-        <div class="row">
-        {streams ? streams.map((stream) => (
-          <div className="col-lg-4 d-flex align-items-stretch">
+        <div className="row">
+          {streams ? streams.map((stream) => (
+            <div className="col-lg-4 d-flex align-items-stretch">
               <div className="card">
                 <div className='card-header'><b>{stream.user_name}</b></div>
                 <div className='card-img-caption'>
@@ -47,9 +47,9 @@ const TwitchLiveStreams = ({ tag }) => {
                   {stream.game_name}
                 </div>
               </div>
-          </div>
-        )) : <p>Currently none</p>
-        }
+            </div>
+          )) : <p>Currently none</p>
+          }
         </div>
       </div>
     </div >
