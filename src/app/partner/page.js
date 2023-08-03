@@ -1,12 +1,13 @@
-import Head from 'next/head';
+import {Metadata} from 'next/head';
 import Header from '../../components/header';
+
+export const metadata = {
+  title: 'Rainbow Creators : Partner program',
+}
 
 export default function Page() {
     return (
       <>
-        <Head>
-            <title>Rainbow Creators : Partner program</title>
-        </Head>
         <Header subTitle="Partner program is made for you"/>
         <main>
           <section>
