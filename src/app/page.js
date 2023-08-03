@@ -13,7 +13,7 @@ export default function Page() {
         <main>
           <section>
             <article>
-              
+              <TwitchLiveStreams tag='LGBTQIA'/>
             </article>
           </section>
         </main>
