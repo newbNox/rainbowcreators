@@ -45,6 +45,28 @@ header .logo {
     font-size: 100px;
 }
 
+footer {
+  font-family: "Montserrat";
+  position:relative;
+  background: repeating-linear-gradient(
+      45deg,
+      #eb3d27,
+      #eb3d27 10px,
+      #f6751f 10px,
+      #f6751f 20px,
+      #ffb106 20px,
+      #ffb106 30px,
+      #6ecb30 30px,
+      #6ecb30 40px,
+      #5080cd 40px,
+      #5080cd 50px,
+      #875db4 50px,
+      #875db4 60px
+  );
+
+  box-shadow: 0 20px 0 white;
+}
+
 article {
     display: table;
     max-width: 1000px;

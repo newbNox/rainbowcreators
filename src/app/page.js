@@ -1,3 +1,4 @@
+import Footer from '../components/footer';
 import Header from '../components/header';
 import TwitchLiveStreams from '../components/twitchStreams';
 
@@ -16,6 +17,7 @@ export default function Page() {
           </article>
         </section>
       </main>
+      <Footer/>
     </>
   );
 }
