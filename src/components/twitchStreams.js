@@ -1,6 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faPlay } from '@fortawesome/free-solid-svg-icons';
 
 const formatViewerCount = (count) => {
   if(count < 1000){
@@ -37,28 +39,33 @@ const TwitchLiveStreams = ({ tag }) => {
 
   return (
     <div>
-      <h1 className='headline'>LGBTQIA STREAMERS LIVE RIGHT NOW!</h1>
+      <h1 className='headline text-center'>LGBTQIA STREAMERS LIVE RIGHT NOW!</h1>
       <div className="container">
-        <div class="row">
-        {streams ? streams.map((stream) => (
-          <div className="col-lg-4 d-flex align-items-stretch">
+        <div className="row">
+          {streams ? streams.map((stream) => (
+            <div className="col-lg-4 d-flex align-items-stretch" key={stream.id}>
               <div className="card">
                 <div className='card-header'><b>{stream.user_name}</b></div>
                 <div className='card-img-caption'>
-                  <p className='card-text'>{formatViewerCount(stream.viewer_count)}</p>
-                  <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top" alt="..." />
+                  <p className='card-text'><FontAwesomeIcon icon={faEye} className="me-1" /> {formatViewerCount(stream.viewer_count)}</p>
+                  <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top rounded-0" alt="..." />
                 </div>
-                <div className="card-body text-start">
+                <div className="card-body justify-content-between d-flex flex-column">
                   <p className="card-text">{stream.title.substring(0, 75) + "..."}</p>
+                  <div>
+                    <a href={`https://twitch.tv/${stream.user_name}`} target='_blank' className="btn btn-dark btn-sm mt-auto">
+                      <FontAwesomeIcon icon={faPlay} className="me-2" />
+                      Watch the live
+                    </a>
+                  </div>
                 </div>
-                <a href={`https://twitch.tv/${stream.user_name}`} target='_blank' className="btn btn-dark justify-self-end mt-auto">Watch the live</a>
-                <div class="card-footer text-body-secondary">
+                <div className="card-footer text-body-secondary">
                   {stream.game_name}
                 </div>
               </div>
-          </div>
-        )) : <p>Currently none</p>
-        }
+            </div>
+          )) : <p>Currently none</p>
+          }
         </div>
       </div>
     </div >
