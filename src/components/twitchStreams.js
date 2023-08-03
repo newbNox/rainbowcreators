@@ -1,22 +1,47 @@
-'use client'
 import React, { useEffect, useState } from 'react';
+import { useClient } from 'next/client';
 import axios from 'axios';
-
-const { TWITCH_CLIENT_ID } = process.env;
 
 const TwitchLiveStreams = ({ tag }) => {
   const [streams, setStreams] = useState([]);
+  const {TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET} = process.env;
+  const [accessToken, setAccessToken] = useState('');
+
+  useEffect(() => {
+    const fetchAccessToken = async () => {
+      try {
+        const tokenUrl = `https://id.twitch.tv/oauth2/token`;
+        const tokenData = new URLSearchParams({
+          client_id: TWITCH_CLIENT_ID,
+          client_secret: TWITCH_CLIENT_SECRET,
+          grant_type: 'client_credentials',
+        });
+
+        const response = await axios.post(tokenUrl, tokenData);
+        setAccessToken(response.data.access_token);
+      } catch (error) {
+        console.error('Error fetching Twitch access token:', error);
+      }
+    };
+
+    fetchAccessToken();
+  }, [TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET]);
 
   useEffect(() => {
     const getLiveStreams = async () => {
       try {
+        if (!accessToken) return; // Wait until the access token is available
+
         const url = `https://api.twitch.tv/helix/streams?tag_id=${tag}&first=10`;
 
         const response = await axios.get(url, {
           headers: {
+            'Authorization': `Bearer ${accessToken}`,
             'Client-ID': TWITCH_CLIENT_ID,
           },
         });
+
+        console.log('Twitch API Response:', response.data);
 
         setStreams(response.data.data);
       } catch (error) {
@@ -25,7 +50,7 @@ const TwitchLiveStreams = ({ tag }) => {
     };
 
     getLiveStreams();
-  }, [tag]);
+  }, [tag, accessToken, TWITCH_CLIENT_ID]);
 
   return (
     <div>
@@ -48,4 +73,4 @@ const TwitchLiveStreams = ({ tag }) => {
   );
 };
 
-export default TwitchLiveStreams;
+export default useClient(TwitchLiveStreams);
