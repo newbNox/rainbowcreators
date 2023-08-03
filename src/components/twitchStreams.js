@@ -13,6 +13,14 @@ const formatViewerCount = (count) => {
   }
 }
 
+const truncateTitle = (str) => {
+  if(str.length > 75){
+    return str.substring(0, 75) + "...";
+  } else {
+    return str
+  }
+}
+
 const TwitchLiveStreams = ({ tag }) => {
   const [streams, setStreams] = useState([]);
   const [isClient, setIsClient] = useState(false);
@@ -51,7 +59,7 @@ const TwitchLiveStreams = ({ tag }) => {
                   <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top rounded-0" alt="..." />
                 </div>
                 <div className="card-body justify-content-between d-flex flex-column">
-                  <p className="card-text">{stream.title.substring(0, 75) + "..."}</p>
+                  <p className="card-text">{truncateTitle(stream.title)}</p>
                   <div>
                     <a href={`https://twitch.tv/${stream.user_name}`} target='_blank' className="btn btn-dark btn-sm mt-auto">
                       <FontAwesomeIcon icon={faPlay} className="me-2" />
