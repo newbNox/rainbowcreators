@@ -1,7 +1,7 @@
 # Rainbow Creators
 ![GitHub issues](https://img.shields.io/github/issues/newbnox/rainbowcreators) ![GitHub forks](https://img.shields.io/github/forks/newbnox/rainbowcreators)
 ![GitHub](https://img.shields.io/github/license/newbnox/rainbowcreators)
-![Discord](https://img.shields.io/discord/1136404263229202463?label=Discord&color=%237289da)
+[![Discord](https://img.shields.io/discord/1136404263229202463?label=Discord&color=%237289da)](https://discord.gg/AtsPhp3Wk2)
 ![Twitter Follow](https://img.shields.io/twitter/follow/lgbtqiaCreators)
 
 
