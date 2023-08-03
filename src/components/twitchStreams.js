@@ -39,15 +39,17 @@ const TwitchLiveStreams = ({ tag }) => {
                 <div className='card-header'><b>{stream.user_name}</b></div>
                 <div className='card-img-caption'>
                   <p className='card-text'><FontAwesomeIcon icon={faEye} className="me-1" /> {stream.viewer_count}</p>
-                  <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top" alt="..." />
+                  <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top rounded-0" alt="..." />
                 </div>
-                <div className="card-body text-start">
+                <div className="card-body justify-content-between d-flex flex-column">
                   <p className="card-text">{stream.title.substring(0, 75) + "..."}</p>
+                  <div>
+                    <a href={`https://twitch.tv/${stream.user_name}`} target='_blank' className="btn btn-dark btn-sm mt-auto">
+                      <FontAwesomeIcon icon={faPlay} className="me-2" />
+                      Watch the live
+                    </a>
+                  </div>
                 </div>
-                <a href={`https://twitch.tv/${stream.user_name}`} target='_blank' className="btn btn-dark justify-self-end mt-auto">
-                  <FontAwesomeIcon icon={faPlay} className="me-2" />
-                  Watch the live
-                </a>
                 <div className="card-footer text-body-secondary">
                   {stream.game_name}
                 </div>
