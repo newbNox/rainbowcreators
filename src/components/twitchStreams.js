@@ -14,8 +14,8 @@ const TwitchLiveStreams = ({ tag }) => {
     if (isClient) {
       const fetchLiveStreams = async () => {
         try {
-          const response = await fetch('../api/twitch'); // Make API call to server-side route
-          const data = await response.json();
+          const response = await axios.get('../api/twitch'); // Use axios to make the API call
+          const data = response.data;
           setStreams(data.data);
         } catch (error) {
           console.error('Error fetching Twitch live streams:', error);
@@ -28,19 +28,17 @@ const TwitchLiveStreams = ({ tag }) => {
 
   return (
     <div>
-      <h1>Twitch Live Streams with "{tag}" Tag:</h1>
+      <h1 className='headline'>LGBTQIA STREAMERS/SUPPORTERS LIVE RIGHT NOW!</h1>
       {streams.map((stream) => (
         <div key={stream.id}>
-          <h2>{stream.title}</h2>
-          <p>Streamer: {stream.user_name}</p>
-          <p>Viewers: {stream.viewer_count}</p>
-          <a
-            href={`https://twitch.tv/${stream.user_name}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Watch Stream
-          </a>
+          <div className="card">
+            {stream.thumbnail_url && (
+              <img src={stream.thumbnail_url} className="card-img-top" alt="..." />
+            )}
+            <div className="card-body">
+              <p className="card-text">{stream.title} {stream.user_name}</p>
+            </div>
+          </div>
         </div>
       ))}
     </div>
