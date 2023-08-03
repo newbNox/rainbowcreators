@@ -43,7 +43,7 @@ const TwitchLiveStreams = ({ tag }) => {
                   <p className="card-text">{stream.title.substring(0, 75) + "..."}</p>
                 </div>
                 <a href={`https://twitch.tv/${stream.user_name}`} target='_blank' className="btn btn-dark justify-self-end mt-auto">Watch the live</a>
-                <div class="card-footer text-body-secondary">
+                <div className="card-footer text-body-secondary">
                   {stream.game_name}
                 </div>
               </div>
