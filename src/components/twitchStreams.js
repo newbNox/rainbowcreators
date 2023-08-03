@@ -32,7 +32,7 @@ const TwitchLiveStreams = ({ tag }) => {
       <div className="container">
         <div className="row">
           {streams ? streams.map((stream) => (
-            <div className="col-lg-4 d-flex align-items-stretch">
+            <div className="col-lg-4 d-flex align-items-stretch" key={stream.id}>
               <div className="card">
                 <div className='card-header'><b>{stream.user_name}</b></div>
                 <div className='card-img-caption'>
