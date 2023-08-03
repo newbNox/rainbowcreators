@@ -29,19 +29,20 @@ const TwitchLiveStreams = ({ tag }) => {
   return (
     <div>
       <h1 className='headline'>LGBTQIA STREAMERS/SUPPORTERS LIVE RIGHT NOW!</h1>
-      {streams.map((stream) => (
+      {streams ? streams.map((stream) => (
         <div key={stream.id}>
           <div className="card">
             {stream.thumbnail_url && (
-              <img src={stream.thumbnail_url} className="card-img-top" alt="..." />
+              <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top" alt="..." />
             )}
             <div className="card-body">
               <p className="card-text">{stream.title} {stream.user_name}</p>
             </div>
           </div>
         </div>
-      ))}
-    </div>
+      )) : <p>Currently none</p>
+      }
+    </div >
   );
 };
 
