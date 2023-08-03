@@ -1,91 +1,77 @@
 @import '/node_modules/bootstrap/scss/bootstrap.scss';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto');
-
 $primaryColor: #eb3d27;
 $discordMainColor: #5865F2;
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    text-align: center;
-    font-size: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: white;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: white;
 }
 
 header {
-    font-family: "Montserrat";
-    position:relative;
-    background: repeating-linear-gradient(
-        45deg,
-        #eb3d27,
-        #eb3d27 10px,
-        #f6751f 10px,
-        #f6751f 20px,
-        #ffb106 20px,
-        #ffb106 30px,
-        #6ecb30 30px,
-        #6ecb30 40px,
-        #5080cd 40px,
-        #5080cd 50px,
-        #875db4 50px,
-        #875db4 60px
-    );
+  position: relative;
+  background: repeating-linear-gradient(45deg,
+      #eb3d27,
+      #eb3d27 10px,
+      #f6751f 10px,
+      #f6751f 20px,
+      #ffb106 20px,
+      #ffb106 30px,
+      #6ecb30 30px,
+      #6ecb30 40px,
+      #5080cd 40px,
+      #5080cd 50px,
+      #875db4 50px,
+      #875db4 60px);
 
-    box-shadow: 0 20px 0 white;
+  box-shadow: 0 20px 0 white;
 }
 
 header .logo {
-    padding-top: 25px;
-    width: 100%;
-    font-size: 100px;
+  padding-top: 25px;
+  width: 100%;
+  font-size: 100px;
 }
 
 article {
-    display: table;
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 25px;
+  display: table;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 25px;
 }
 
 article h1 {
-    font-size: 16px;
-    font-family: "Roboto";
+  font-size: 16px;
 }
 
 h1.headline {
   font-size: 20px;
-  font-family: "Roboto";
   font-weight: bold;
 }
 
-p {
-    font-family: "Roboto";
-}
-
 h1.logo {
-    text-align: center;
-    color: #fcedd8;
-    font-weight: 700;
-    text-shadow: 2px 2px 0px #eb452b, 
-                4px 4px 0px #efa032, 
-                6px 6px 0px #46b59b, 
-                8px 8px 0px #017e7f, 
-                10px 10px 0px #052939, 
-                12px 12px 0px #c11a2b, 
-                14px 14px 0px #c11a2b, 
-                16px 16px 0px #c11a2b, 
-                18px 18px 0px #c11a2b;
+  color: #fcedd8;
+  font-weight: 700;
+  text-shadow: 2px 2px 0px #eb452b,
+    4px 4px 0px #efa032,
+    6px 6px 0px #46b59b,
+    8px 8px 0px #017e7f,
+    10px 10px 0px #052939,
+    12px 12px 0px #c11a2b,
+    14px 14px 0px #c11a2b,
+    16px 16px 0px #c11a2b,
+    18px 18px 0px #c11a2b;
 }
 
 a {
-    color: $primaryColor;
-    text-decoration: none;
+  color: $primaryColor;
+  text-decoration: none;
 }
 
 p.subTitle {
@@ -97,50 +83,57 @@ p.subTitle {
 }
 
 .waves {
-    position:relative;
-    width: 100%;
-    height:15vh;
-    margin-bottom:-7px; /*Fix for safari gap*/
-    min-height:100px;
-    max-height:150px;
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  /*Fix for safari gap*/
+  min-height: 100px;
+  max-height: 150px;
 }
 
 /* Animation */
 
-.parallax > use {
-  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+.parallax>use {
+  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
 }
-.parallax > use:nth-child(1) {
+
+.parallax>use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
 }
-.parallax > use:nth-child(2) {
+
+.parallax>use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 10s;
 }
-.parallax > use:nth-child(3) {
+
+.parallax>use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 13s;
 }
-.parallax > use:nth-child(4) {
+
+.parallax>use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 20s;
 }
+
 @keyframes move-forever {
   0% {
-   transform: translate3d(-90px,0,0);
+    transform: translate3d(-90px, 0, 0);
   }
-  100% { 
-    transform: translate3d(85px,0,0);
+
+  100% {
+    transform: translate3d(85px, 0, 0);
   }
 }
 
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
-    .waves {
-        height:40px;
-        min-height:40px;
-    }
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
 }
 
 .card {
@@ -152,13 +145,12 @@ p.subTitle {
   border-top-left-radius: calc(.25rem - 1px);
   border-top-right-radius: calc(.25rem - 1px);
 }
-  
+
 .card-img-caption .card-img-top {
   z-index: 0;
 }
-    
+
 .card-img-caption .card-text {
-  text-align: center;
   margin: 45% 10;
   position: absolute;
   z-index: 1;
