@@ -1,11 +1,17 @@
-import Link from 'next/link';
+
+import { Montserrat } from 'next/font/google'
+const montserrat = Montserrat({
+  weight: ["900"],
+  subsets: ["latin"],
+  display: "swap"
+})
 
 const Header = ({ subTitle }) => {
   return (
     <header>
       <div className="logoSection">
         <a href="/">
-          <h1 className='logo text-center' data-shadow='dang!'>Rainbow Creators</h1>
+          <h1 className={"logo text-center " + montserrat.className} data-shadow='dang!'>Rainbow Creators</h1>
         </a>
         <p className='subTitle text-center'>{subTitle}</p>
       </div>
