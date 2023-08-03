@@ -30,7 +30,7 @@ const TwitchLiveStreams = ({ tag }) => {
 
   return (
     <div>
-      <h1 className='headline'>LGBTQIA STREAMERS LIVE RIGHT NOW!</h1>
+      <h1 className='headline text-center'>LGBTQIA STREAMERS LIVE RIGHT NOW!</h1>
       <div className="container">
         <div className="row">
           {streams ? streams.map((stream) => (
