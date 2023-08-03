@@ -1,6 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faPlay } from '@fortawesome/free-solid-svg-icons';
 
 const TwitchLiveStreams = ({ tag }) => {
   const [streams, setStreams] = useState([]);
@@ -36,13 +38,16 @@ const TwitchLiveStreams = ({ tag }) => {
               <div className="card">
                 <div className='card-header'><b>{stream.user_name}</b></div>
                 <div className='card-img-caption'>
-                  <p className='card-text'>{stream.viewer_count}</p>
+                  <p className='card-text'><FontAwesomeIcon icon={faEye} className="me-1" /> {stream.viewer_count}</p>
                   <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top" alt="..." />
                 </div>
                 <div className="card-body text-start">
                   <p className="card-text">{stream.title.substring(0, 75) + "..."}</p>
                 </div>
-                <a href={`https://twitch.tv/${stream.user_name}`} target='_blank' className="btn btn-dark justify-self-end mt-auto">Watch the live</a>
+                <a href={`https://twitch.tv/${stream.user_name}`} target='_blank' className="btn btn-dark justify-self-end mt-auto">
+                  <FontAwesomeIcon icon={faPlay} className="me-2" />
+                  Watch the live
+                </a>
                 <div className="card-footer text-body-secondary">
                   {stream.game_name}
                 </div>
