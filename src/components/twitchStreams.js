@@ -4,6 +4,15 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faPlay } from '@fortawesome/free-solid-svg-icons';
 
+const formatViewerCount = (count) => {
+  if(count < 1000){
+    return count;
+  } else {
+    const countInK = (count / 1000).toFixed(1);
+    return `${countInK}K`;
+  }
+}
+
 const TwitchLiveStreams = ({ tag }) => {
   const [streams, setStreams] = useState([]);
   const [isClient, setIsClient] = useState(false);
@@ -38,7 +47,7 @@ const TwitchLiveStreams = ({ tag }) => {
               <div className="card">
                 <div className='card-header'><b>{stream.user_name}</b></div>
                 <div className='card-img-caption'>
-                  <p className='card-text'><FontAwesomeIcon icon={faEye} className="me-1" /> {stream.viewer_count}</p>
+                  <p className='card-text'><FontAwesomeIcon icon={faEye} className="me-1" /> {formatViewerCount(stream.viewer_count)}</p>
                   <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top rounded-0" alt="..." />
                 </div>
                 <div className="card-body justify-content-between d-flex flex-column">
