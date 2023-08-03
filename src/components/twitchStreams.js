@@ -37,6 +37,7 @@ const TwitchLiveStreams = ({ tag }) => {
             )}
             <div className="card-body">
               <p className="card-text">{stream.title} {stream.user_name}</p>
+              <a href={`https://twitch.tv/${stream.user_name}`} class="btn btn-primary">Watch</a>
             </div>
           </div>
         </div>
