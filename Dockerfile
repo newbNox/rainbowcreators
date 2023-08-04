@@ -43,11 +43,13 @@ ENV NODE_ENV production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-USER nextjs
+USER root
 
 # Create NGINX directories and copy the custom NGINX configuration
 RUN mkdir -p /etc/nginx/conf.d
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+
+USER nextjs
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
