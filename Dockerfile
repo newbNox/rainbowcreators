@@ -56,6 +56,7 @@ USER nextjs
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
+USER root
 # Make sure NGINX has the necessary permissions to read the static files
 RUN chown -R nextjs:nodejs /app/.next
 
