@@ -1,9 +1,10 @@
+# Use the official Node.js image as the base image
 FROM node:18-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat nginx
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
@@ -14,7 +15,6 @@ RUN \
   elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
   else echo "Lockfile not found." && exit 1; \
   fi
-
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -45,16 +45,23 @@ RUN adduser --system --uid 1001 nextjs
 
 USER nextjs
 
-#COPY --from=builder /app/public ./public
+# Create NGINX directories and copy the custom NGINX configuration
+RUN mkdir -p /etc/nginx/conf.d
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
+# Make sure NGINX has the necessary permissions to read the static files
+RUN chown -R nextjs:nodejs /app/.next
+
+USER nextjs
+
 EXPOSE 3000
 
 ENV PORT 3000
 ENV HOSTNAME localhost
 
-CMD ["node", "server.js"]
+CMD ["nginx", "-g", "daemon off;"]    # Start NGINX as the main process
