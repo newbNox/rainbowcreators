@@ -4,6 +4,7 @@ import TwitchLiveStreams from '../components/twitchStreams';
 
 export const metadata = {
   title: 'Rainbow Creators',
+  description: 'The landing page of all LGBTQIA+ content creators.'
 }
 
 export default function Page() {
