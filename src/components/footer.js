@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className='col'>
                         <ul className="list-group-flush">
                             <li className="list-group-item"><a href="https://github.com/newbNox/rainbowcreators" target="_blank" className='light'><FontAwesomeIcon icon={faGithub} /> Open Source project by newbNox</a></li>
-                            <li className="list-group-item"><a href="https://discord.gg/AtsPhp3Wk2" target='_blank' className='light'><FontAwesomeIcon icon={faDiscord}/> Discord Community</a></li>
+                            <li className="list-group-item"><a href="/discord" target='_blank' className='light'><FontAwesomeIcon icon={faDiscord}/> Discord Community</a></li>
                         </ul>
                     </div>
                     <div className='col'>
