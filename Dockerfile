@@ -57,4 +57,4 @@ EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME localhost
 
-CMD ["nginx", "-g", "daemon off;"]    # Start NGINX as the main process
+CMD ["node", "server.js"]
