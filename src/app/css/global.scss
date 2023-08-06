@@ -35,7 +35,13 @@ header {
 header .logo {
   padding-top: 25px;
   width: 100%;
-  font-size: 100px;
+  //font-size: 100px;
+}
+
+@media only screen and (min-width: 768px) {
+  header .logo {
+    font-size: 100px;
+  }
 }
 
 footer {
