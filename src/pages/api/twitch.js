@@ -3,6 +3,7 @@ const https = require('https');
 const { TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET } = process.env;
 
 export default async function handler(req, res) {
+  //console.log(req.query.tag)
   try {
     const tokenUrl = `https://id.twitch.tv/oauth2/token`;
     const tokenData = new URLSearchParams({
@@ -73,8 +74,8 @@ export default async function handler(req, res) {
       }
       // Update the cursor to fetch the next page
       cursor = twitchJson.pagination.cursor;
-      console.log(fetchedCursors)
-      console.log(allStreams.length)
+      //console.log(fetchedCursors)
+      //console.log(allStreams.length)
     }
                                                 
     const finalStreams = allStreams.slice(0, limit);

@@ -21,31 +21,12 @@ const truncateTitle = (str) => {
   }
 }
 
-const TwitchLiveStreams = ({ tag }) => {
-  const [streams, setStreams] = useState([]);
-  const [isClient, setIsClient] = useState(false);
+const TwitchLiveStreams = async ({ tag }) => {
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (isClient) {
-      const fetchLiveStreams = async () => {
-        try {
-          const response = await axios.get('../api/twitch'); // Use axios to make the API call
-          const data = response.data;
-          setStreams(data.data);
-        } catch (error) {
-          console.error('Error fetching Twitch live streams:', error);
-        }
-      };
-
-      fetchLiveStreams();
-    }
-  }, [isClient, tag]);
-
-  return (
+  const response = await fetch(`../api/twitch`);
+  const data = await response.json();
+  const streams = data.data;
+   return (
     <div>
       <h1 className='headline text-center'>LGBTQIA STREAMERS LIVE RIGHT NOW!</h1>
       <div className="container">
