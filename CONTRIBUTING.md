@@ -13,7 +13,7 @@ Here are few simple CCs you should remember when doing your commits:
 - `feat:`
     - You are introducing new feature/addition to the project.
 - `refactor:`
-    - You are editing/removing something from the projhect but not introducing any new features along the way.
+    - You are editing/removing something from the project but not introducing any new features along the way.
 - `fix:`
     - Pretty self-explanatory, you are fixing something.
 
