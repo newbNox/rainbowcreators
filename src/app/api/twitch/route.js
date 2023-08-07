@@ -33,13 +33,26 @@ async function fetchTwitchData() {
   return twitchJson;
 }
 
-export default async function handler(req, res) {
-  try {
-    const twitchData = await fetchTwitchData();
-
-    res.status(200).json(twitchData);
-  } catch (error) {
-    console.error('Error fetching Twitch data:', error);
-    res.status(500).json({ error: 'Internal server error' });
+export async function GET(request) { // Use lowercase for the method name
+    try {
+      const twitchData = await fetchTwitchData();
+  
+      // Return the response with the JSON data
+      return new Response(JSON.stringify(twitchData), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (error) {
+      console.error('Error fetching Twitch data:', error);
+  
+      // Return an error response
+      return new Response(JSON.stringify({ error: 'Internal server error' }), {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    }
   }
-}

@@ -1,5 +1,7 @@
 import Footer from '../components/footer';
 import Header from '../components/header';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faPlay } from '@fortawesome/free-solid-svg-icons';
 
 export const metadata = {
   title: 'Rainbow Creators',
@@ -27,15 +29,12 @@ async function getStreams(){
   const apiURL = `http://localhost:3000/api/twitch`
   const res = await fetch(apiURL);
 
-  const data = res.data;
-
-  console.log(res.toJSON())
-  return res;
+  const data = await res.json();
+  return data.data;
 }
 
 export default async function Page() {
   const streams = await getStreams();
-  //console.log(streams)
   return (
     <>
       <Header subTitle="The landing page of all LGBTQIA+ content creators" />
@@ -44,8 +43,7 @@ export default async function Page() {
           <article>
             <div className="container">
               <div className="row">
-                {streams && streams.length > 0 ? (
-                  streams.map((stream) => (
+                {streams.map((stream) => (
                     <div className="col-lg-4 d-flex align-items-stretch" key={stream.id}>
                       <div className="card">
                         <div className='card-header'><b>{stream.display_name}</b></div>
@@ -67,10 +65,7 @@ export default async function Page() {
                         </div>
                       </div>
                     </div>
-                  ))
-                ) : (
-                  <p>Currently none</p>
-                )}
+                ))}
               </div>
             </div>
           </article>
