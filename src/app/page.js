@@ -1,24 +1,82 @@
 import Footer from '../components/footer';
 import Header from '../components/header';
-import TwitchLiveStreams from '../components/twitchStreams';
 
 export const metadata = {
   title: 'Rainbow Creators',
   description: 'The landing page of all LGBTQIA+ content creators.'
 }
 
-export default function Page() {
+const formatViewerCount = (count) => {
+  if (count < 1000) {
+    return count;
+  } else {
+    const countInK = (count / 1000).toFixed(1);
+    return `${countInK}K`;
+  }
+};
+
+const truncateTitle = (str) => {
+  if (str.length > 75) {
+    return str.substring(0, 75) + "...";
+  } else {
+    return str;
+  }
+};
+
+async function getStreams(){
+  const apiURL = `http://localhost:3000/api/twitch`
+  const res = await fetch(apiURL);
+
+  const data = res.data;
+
+  console.log(res.toJSON())
+  return res;
+}
+
+export default async function Page() {
+  const streams = await getStreams();
+  //console.log(streams)
   return (
     <>
       <Header subTitle="The landing page of all LGBTQIA+ content creators" />
       <main>
         <section>
           <article>
-            <TwitchLiveStreams tag='LGBTQIA' />
+            <div className="container">
+              <div className="row">
+                {streams && streams.length > 0 ? (
+                  streams.map((stream) => (
+                    <div className="col-lg-4 d-flex align-items-stretch" key={stream.id}>
+                      <div className="card">
+                        <div className='card-header'><b>{stream.display_name}</b></div>
+                        <div className='card-img-caption'>
+                          <p className='card-text'><FontAwesomeIcon icon={faEye} className="me-1" /> {formatViewerCount(stream.viewer_count)}</p>
+                          <img src={stream.thumbnail_url.replace("-{width}x{height}", "")} className="card-img-top rounded-0" alt="..." />
+                        </div>
+                        <div className="card-body justify-content-between d-flex flex-column">
+                          <p className="card-text">{truncateTitle(stream.title)}</p>
+                          <div>
+                            <a href={`https://twitch.tv/${stream.broadcaster_login}`} target='_blank' className="btn btn-dark btn-sm mt-auto">
+                              <FontAwesomeIcon icon={faPlay} className="me-2" />
+                              Watch the live
+                            </a>
+                          </div>
+                        </div>
+                        <div className="card-footer text-body-secondary">
+                          {stream.game_name}
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p>Currently none</p>
+                )}
+              </div>
+            </div>
           </article>
         </section>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }
