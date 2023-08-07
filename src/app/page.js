@@ -43,7 +43,9 @@ export default async function Page() {
       <main>
         <section>
           <article>
+            <h1 className='headline text-center'>RANDOM PICKS LIVE NOW</h1>
             <div className="container">
+              <hr />
               <div className="row">
               {liveData.map((entry, index) => (
                 <div className="col-lg-4 d-flex align-items-stretch" key={index}>
