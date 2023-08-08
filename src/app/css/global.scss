@@ -13,7 +13,7 @@ body {
   background-color: white;
 }
 
-header {
+header.head {
   position: relative;
   background: repeating-linear-gradient(45deg,
       #eb3d27,
@@ -196,4 +196,16 @@ p.subTitle {
   padding: 3px;
   font-size: 12px;
   border-radius: 15%;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.btn {
+  box-shadow: 5px 5px white;
 }

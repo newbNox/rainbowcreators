@@ -1,4 +1,4 @@
-
+import Nav from './navbar';
 import { Montserrat } from 'next/font/google'
 const montserrat = Montserrat({
   weight: ["900"],
@@ -10,13 +10,14 @@ const montserrat = Montserrat({
 const Header = ({ subTitle }) => {
   return (
     <div>
-      <header>
+      <header className='head'>
         <div className="logoSection">
           <a href="/">
             <h1 className={"logo text-center " + montserrat.className}>Rainbow Creators</h1>
           </a>
           <p className='subTitle text-center'>{subTitle}</p>
         </div>
+        <Nav/>
         <div>
           <svg
             className="waves"
