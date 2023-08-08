@@ -1,5 +1,6 @@
 import {Metadata} from 'next/head';
 import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 export const metadata = {
   title: 'Rainbow Creators : Partner program',
@@ -19,6 +20,7 @@ export default function Page() {
             </article>
           </section>
         </main>
+        <Footer />
       </>
     );
   }
