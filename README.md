@@ -6,7 +6,8 @@
 
 Platform for all **LGBTQIA+** content creators. You can easily find people streaming, playing games, creating videos from the same community.
 
-## Dev installation / Contributing
-Feel free to improve the website. No pull requests are taken to the `main` branch, so make your pull requests to the `dev` branch. The project is made around **[Next.js](https://nextjs.org)**.
+## Dev installation
+The project is made around **[Next.js](https://nextjs.org)**.
+- To run development environment on your local computer, just run command `npm run dev`.
 
-To run development environment on your local computer, just run command `npm run dev`.
+Read more about from [CONTRIBUTING.md](CONTRIBUTING.md)
