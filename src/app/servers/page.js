@@ -7,6 +7,7 @@ import rustImg from '../../public/rust_header.webp'
 import { Montserrat } from 'next/font/google'
 import { faWifi } from '@fortawesome/free-solid-svg-icons';
 import CopyToClipboardButton from '../../components/copyToClipboard';
+import { getApiUrl } from '../lib/getApiUrl';
 
 const montserrat = Montserrat({
   weight: ["900"],
@@ -21,7 +22,8 @@ export const metadata = {
 }
 
 async function getServerData(){
-    const apiURL = `http://localhost:3000/api/rust`
+    const apiPath = "rust";
+    const apiURL = await getApiUrl(apiPath);
     const res = await fetch(apiURL, {
       next: {revalidate: 300}
     });
