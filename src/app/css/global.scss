@@ -205,8 +205,13 @@ p.subTitle {
   border-radius: 15%;
 }
 
+.nav {
+  text-transform: uppercase;
+}
+
 .nav-link {
   color: white;
+  font-weight: 500;
 }
 
 .nav-link:hover {
