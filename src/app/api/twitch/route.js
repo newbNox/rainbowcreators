@@ -33,7 +33,7 @@ async function fetchAccessToken(){
 
 async function fetchTwitchData() {
   const token = await fetchAccessToken();
-  const twitchUrl = `https://api.twitch.tv/helix/search/channels?query=gay&live_only=true`;
+  const twitchUrl = `https://api.twitch.tv/helix/search/channels?query=gay&live_only=true&language=en`;
 
   const twitchResponse = await fetch(twitchUrl, {
     headers: {
