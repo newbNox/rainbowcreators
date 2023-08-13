@@ -2,6 +2,7 @@ import Footer from '../components/footer';
 import Header from '../components/header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { getApiUrl } from './lib/getApiUrl';
 
 export const metadata = {
   title: 'Rainbow Creators',
@@ -26,7 +27,8 @@ const truncateTitle = (str) => {
 };
 
 async function getStreams(){
-  const apiURL = `http://localhost:3000/api/twitch`
+  const apiPath = "twitch";
+  const apiURL = await getApiUrl(apiPath);
   const res = await fetch(apiURL, {
     next: {revalidate: 300}
   });

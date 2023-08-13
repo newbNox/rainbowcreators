@@ -7,6 +7,7 @@ import rustImg from '../../public/rust_header.webp'
 import { Montserrat } from 'next/font/google'
 import { faWifi } from '@fortawesome/free-solid-svg-icons';
 import CopyToClipboardButton from '../../components/copyToClipboard';
+import { getApiUrl } from '../lib/getApiUrl';
 
 const montserrat = Montserrat({
   weight: ["900"],
@@ -21,7 +22,8 @@ export const metadata = {
 }
 
 async function getServerData(){
-    const apiURL = `http://localhost:3000/api/rust`
+    const apiPath = "rust";
+    const apiURL = await getApiUrl(apiPath);
     const res = await fetch(apiURL, {
       next: {revalidate: 300}
     });
@@ -41,19 +43,19 @@ export default async function Page() {
             <article>
                 <h1 className='headline'>Rainbow Creators Official Community Servers</h1>
                 <p>All of our servers are open to everyone without needing to fill out any whitelist forms.</p>
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col align-self-start">
-                      <div class="card" style={{width: "30rem"}}>
+                <div className="container-fluid">
+                  <div className="row">
+                    <div className="col align-self-start">
+                      <div className="card" style={{width: "30rem"}}>
                         <div className='card-img-caption'>
                             <p className='card-text online'><FontAwesomeIcon icon={faWifi} /> Online</p>
                             <p className={"card-title " + montserrat.className}>[EU] Rust Rainbow | 2x | SOLO / DUO</p>
                             <Image src={rustImg} width="1000" height="150" className="card-img-top" alt="..."/>
                         </div>
-                        <div class="card-body">
-                          <p class="card-text"></p>
+                        <div className="card-body">
+                          <p className="card-text"></p>
                         </div>
-                        <div class="card-footer text-body-secondary">
+                        <div className="card-footer text-body-secondary">
                           <CopyToClipboardButton text="rust.rainbowcreators.live"/> IP: rust.rainbowcreators.live
                         </div>
                       </div>

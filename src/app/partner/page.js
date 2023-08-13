@@ -21,9 +21,9 @@ export default function Page() {
                     Even though the it is called "Partner program", we want to think of it as symbiosis. Giving you the space to promote your love of this community and to connect with people alike. As our partner you get full control over your little space on our page, able to connect your Discord community and other fun stuff!
                 </p>
                 <hr />
-                <div class="container text-center">
-                  <div class="row row-eq-height row-eq-height-xs features featuredItems">
-                    <div class="col-xl-3 col-md-6">
+                <div className="container text-center">
+                  <div className="row row-eq-height row-eq-height-xs features featuredItems">
+                    <div className="col-xl-3 col-md-6">
                       <div className='feature feature-xs-left'>
                         <div className='feature-icon'>
                           <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 0 576 512"><path d="M384 160c-17.7 0-32-14.3-32-32s14.3-32 32-32H544c17.7 0 32 14.3 32 32V288c0 17.7-14.3 32-32 32s-32-14.3-32-32V205.3L342.6 374.6c-12.5 12.5-32.8 12.5-45.3 0L192 269.3 54.6 406.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160c12.5-12.5 32.8-12.5 45.3 0L320 306.7 466.7 160H384z"/></svg>
