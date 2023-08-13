@@ -2,7 +2,7 @@ import Footer from '../components/footer';
 import Header from '../components/header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faPlay } from '@fortawesome/free-solid-svg-icons';
-import { getApiUrl } from './lib/getApiUrl';
+import { getApiUrl } from './functions/getApiUrl';
 
 export const metadata = {
   title: 'Rainbow Creators',

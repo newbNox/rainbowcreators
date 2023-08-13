@@ -7,7 +7,7 @@ import rustImg from '../../public/rust_header.webp'
 import { Montserrat } from 'next/font/google'
 import { faWifi } from '@fortawesome/free-solid-svg-icons';
 import CopyToClipboardButton from '../../components/copyToClipboard';
-import { getApiUrl } from '../lib/getApiUrl';
+import { getApiUrl } from '../functions/getApiUrl';
 
 const montserrat = Montserrat({
   weight: ["900"],
